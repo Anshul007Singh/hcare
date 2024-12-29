@@ -9,7 +9,7 @@ export default function Settings() {
     <Card.Title title="Card Title" subtitle="Card Subtitle"  />
     <Card.Content>
       <Text >Card tie</Text>
-      <Text >Card content</Text>
+      <Text >Card contet</Text>
     </Card.Content>
     <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
     <Card.Actions>
