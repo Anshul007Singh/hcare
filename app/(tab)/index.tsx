@@ -1,42 +1,121 @@
-import { View} from 'react-native'
-import React from 'react'
-import { Text, StyleSheet, Pressable } from 'react-native';
-import { Button } from 'react-native-paper';
+import React, { useState } from "react";
+import {
+  StyleSheet,
+  View,
+  ScrollView,
+  Dimensions,
+  Image,
+  Text,
+  TouchableOpacity,
+} from "react-native";
 
-export default function Home() {
+const { width: screenWidth } = Dimensions.get("window");
+
+const data = [
+  {
+    title: "First Slide",
+    description: "This is the first slide description.",
+    image: "https://www.shutterstock.com/image-vector/set-ui-ux-gui-screens-600nw-1473999881.jpg",
+  },
+  {
+    title: "Second Slid",
+    description: "This is the second slide description.",
+    image: "https://i.ytimg.com/vi/J-ohOirBCJM/maxresdefault.jpg",
+  },
+  {
+    title: "Third Slide",
+    description: "This is the third slide description.",
+    image: "https://via.placeholder.com/400x200.png?text=Slide+3",
+  },
+];
+
+const Home = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleScroll = (event:any) => {
+    const slideIndex = Math.round(event.nativeEvent.contentOffset.x / screenWidth);
+    setActiveIndex(slideIndex);
+  };
+
   return (
-    <View>
-      <Text style={styles.text}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur doloribus, quod soluta neque eaque odio voluptatibus omnis cupiditate. Tempora veritatis numquam id architecto veniam quas reiciendis praesentium ipsum quod alias. Lorem100</Text>
-      <Pressable style={styles.button} onPress={()=>alert('clicked')}>
-      <Text style={styles.buttonText}>Click Me</Text>
-    </Pressable>
-    <Button icon="camera" mode="contained" onPress={() => console.log('Pressed')}>
-    Press me
-  </Button>
+    <View style={styles.container}>
+      <ScrollView
+        horizontal
+        pagingEnabled
+        showsHorizontalScrollIndicator={false}
+        onScroll={handleScroll}
+        scrollEventThrottle={16}
+      >
+        {data.map((item, index) => (
+          <View key={index} style={styles.slide}>
+            <Image source={{ uri: item.image }} style={styles.image} />
+            <Text style={styles.title}>{item.title}</Text>
+            <Text style={styles.description}>{item.description}</Text>
+          </View>
+        ))}
+      </ScrollView>
+
+      {/* Dots Indicator */}
+      <View style={styles.dotsContainer}>
+        {data.map((_, index) => (
+          <TouchableOpacity
+            key={index}
+            style={[
+              styles.dot,
+              activeIndex === index ? styles.activeDot : styles.inactiveDot,
+            ]}
+          />
+        ))}
+      </View>
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
-    padding: 16,
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#ffffff",
   },
-  button: {
-    alignSelf: 'center',
-    padding: 8,
-    borderRadius: 4,
-    elevation: 3,
-    backgroundColor: 'green',
+  slide: {
+    width: screenWidth,
+    justifyContent: "center",
+    alignItems: "center",
   },
-  buttonText: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: 'white',
+  image: {
+    width: "90%",
+    height: 200,
+    borderRadius: 10,
   },
-  text: {
-    fontSize: 16,
-    lineHeight: 21,
-    color: 'black',
-    marginBottom: 16,
+  title: {
+    fontSize: 18,
+    fontWeight: "bold",
+    marginTop: 10,
+  },
+  description: {
+    fontSize: 14,
+    color: "#666",
+    marginTop: 5,
+    textAlign: "center",
+    paddingHorizontal: 20,
+  },
+  dotsContainer: {
+    flexDirection: "row",
+    marginTop: 20,
+  },
+  dot: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    marginHorizontal: 5,
+  },
+  activeDot: {
+    backgroundColor: "#000",
+  },
+  inactiveDot: {
+    backgroundColor: "#ccc",
   },
 });
+
+export default Home;
