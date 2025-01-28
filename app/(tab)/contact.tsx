@@ -1,10 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-export default function index() {
+const contact = () => {
   return (
     <View>
-      <Text>index</Text>
+      <Text>contact</Text>
     </View>
   )
 }
+
+export default contact

@@ -1,10 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-export default function index() {
+const DrawerComponent = () => {
   return (
     <View>
-      <Text>index</Text>
+      <Text>Drawer Component</Text>
     </View>
   )
 }
+
+export default DrawerComponent
