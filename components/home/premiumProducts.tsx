@@ -12,12 +12,13 @@ import { IconButton } from "react-native-paper";
 const { width: screenWidth } = Dimensions.get("window");
 
 const data = [
-  { id: 1, image: "https://picsum.photos/600?random=1" },
-  { id: 2, image: "https://picsum.photos/500?random=2" },
-  { id: 3, image: "https://picsum.photos/700?random=3" },
-  { id: 4, image: "https://picsum.photos/400?random=4" },
-  { id: 5, image: "https://picsum.photos/600?random=5" },
-  { id: 6, image: "https://picsum.photos/300?random=6" },
+  { id: 1, image: "https://hcareindia.com/wp-content/uploads/2024/09/1-5.png" },
+  { id: 2, image: "https://hcareindia.com/wp-content/uploads/2024/09/2-4.png" },
+  { id: 3, image: "https://hcareindia.com/wp-content/uploads/2024/09/3-5.png" },
+  { id: 4, image: "https://hcareindia.com/wp-content/uploads/2024/09/4-4.png" },
+  { id: 5, image: "https://hcareindia.com/wp-content/uploads/2024/09/5-2.png" },
+  { id: 6, image: "https://hcareindia.com/wp-content/uploads/2024/09/7-2.png" },
+  { id: 7, image: "https://hcareindia.com/wp-content/uploads/2024/09/8-2.png" },
 ];
 
 const PremiumProducts = () => {
@@ -79,29 +80,35 @@ const PremiumProducts = () => {
 
 const styles = StyleSheet.create({
   container: {
-    margin:10,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#fff",
+    backgroundColor: "rgba(247, 244, 253, 0.89)",
+    marginBottom:20
   },
   imageContainer: {
     width: screenWidth / 2,
     padding: 10,
+    resizeMode:'cover'
+
   },
   image: {
     width: "100%",
-    height: 150,
-    borderRadius: 10,
+    height: 200,
+    borderRadius: 30,
+    resizeMode:'stretch'
   },
   arrowLeft: {
     position: "absolute",
     left: 10,
     zIndex: 1,
+    backgroundColor:'rgba(208, 184, 245, 0.89)'
+
   },
   arrowRight: {
     position: "absolute",
     right: 10,
-    zIndex: 1,
+    zIndex: 100,
+    backgroundColor:'rgba(208, 184, 245, 0.89)'
   },
 });
 

@@ -15,11 +15,7 @@ const Home = () => {
 
   return (
     <ScrollView>
-        <View style = {{marginBottom:30}}>
-           <SideDrawer />
-        </View>
-        <Divider/>
-        <View >
+        <View style={{marginTop:10}} >
         <Carousel/>
         <Divider/>
         </View>

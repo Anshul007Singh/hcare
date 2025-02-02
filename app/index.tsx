@@ -1,40 +1,53 @@
-// import ContactPage from '@/container/contact';
-// import ContactForm from '@/container/contact';
-// import Home from '@/container/home';
-// import * as React from 'react';
-// import { BottomNavigation, Text } from 'react-native-paper';
+// import React from "react";
+// import { View, StyleSheet } from "react-native";
+// import { Card, Title, Paragraph, Button } from "react-native-paper";
 
-// const MusicRoute = () => <Home/>;
-
-// const AlbumsRoute = () => <ContactPage/>;
-
-// const RecentsRoute = () => <Text>Recents</Text>;
-
-// const NotificationsRoute = () => <Text>Notifications</Text>;
-
-// const MyComponent = () => {
-//   const [index, setIndex] = React.useState(0);
-//   const [routes] = React.useState([
-//     { key: 'music', title: 'Home', focusedIcon: 'home'},
-//     { key: 'albums', title: 'Contact', focusedIcon: 'contacts' },
-//     { key: 'recents', title: 'Recents', focusedIcon: 'history' },
-//     { key: 'notifications', title: 'Notifications', focusedIcon: 'bell', unfocusedIcon: 'bell-outline' },
-//   ]);
-
-//   const renderScene = BottomNavigation.SceneMap({
-//     music: MusicRoute,
-//     albums: AlbumsRoute,
-//     recents: RecentsRoute,
-//     notifications: NotificationsRoute,
-//   });
-
+// const CustomCard = () => {
 //   return (
-//     <BottomNavigation
-//       navigationState={{ index, routes }}
-//       onIndexChange={setIndex}
-//       renderScene={renderScene}
-//     />
+//     <View style={styles.container}>
+//       <Card style={styles.card}>
+//         <Card.Cover
+//           source={{
+//             uri: "https://via.placeholder.com/400x200.png?text=Analgesic+Range",
+//           }}
+//           style={styles.image}
+//         />
+//         <Card.Content>
+//           <Title style={styles.title}>Analgesic & NSAID Range</Title>
+//         </Card.Content>
+//         <Card.Actions>
+//           <Button textColor="green" onPress={() => console.log("Read More")}>
+//             Read More
+//           </Button>
+//         </Card.Actions>
+//       </Card>
+//     </View>
 //   );
 // };
 
-// export default MyComponent;
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     justifyContent: "center",
+//     alignItems: "center",
+//     backgroundColor: "#002855", // Navy blue background
+//     padding: 16,
+//   },
+//   card: {
+//     width: 300,
+//     borderRadius: 10,
+//     overflow: "hidden",
+//     backgroundColor: "#fff",
+//   },
+//   image: {
+//     height: 150,
+//   },
+//   title: {
+//     textAlign: "center",
+//     marginTop: 8,
+//     fontSize: 18,
+//     fontWeight: "bold",
+//   },
+// });
+
+// export default CustomCard;

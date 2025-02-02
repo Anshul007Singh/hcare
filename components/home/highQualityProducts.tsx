@@ -1,26 +1,50 @@
-import React, { useRef, useState } from "react";
-import { Text } from 'react-native-paper';
-import {
-  StyleSheet,
-  View,
-  Dimensions,
-  Image,
-  ScrollView,
-} from "react-native";
-import { IconButton } from "react-native-paper";
+import React, { useRef, useState } from 'react';
+import { Text, Title } from 'react-native-paper';
+import { Card, Button } from 'react-native-paper';
+import { StyleSheet, View, Dimensions, Image, ScrollView } from 'react-native';
+import { IconButton } from 'react-native-paper';
 
-const { width: screenWidth } = Dimensions.get("window");
+const { width: screenWidth } = Dimensions.get('window');
 
 const data = [
-  { id: 1, image: "https://picsum.photos/600?random=1" },
-  { id: 2, image: "https://picsum.photos/500?random=2" },
-  { id: 3, image: "https://picsum.photos/700?random=3" },
-  { id: 4, image: "https://picsum.photos/400?random=4" },
-  { id: 5, image: "https://picsum.photos/600?random=5" },
-  { id: 6, image: "https://picsum.photos/300?random=6" },
+  {
+    id: 1,
+    image: 'https://hcareindia.com/wp-content/uploads/2024/09/1-6.png',
+    title: 'Analgesic & NASAID Range',
+  },
+  {
+    id: 2,
+    image: 'https://hcareindia.com/wp-content/uploads/2024/09/2-5.png',
+    title: 'Anti Malarial & Anti Infective',
+  },
+  {
+    id: 3,
+    image: 'https://hcareindia.com/wp-content/uploads/2024/09/3-6.png',
+    title: 'Antibiotics product Range',
+  },
+  {
+    id: 4,
+    image: 'https://hcareindia.com/wp-content/uploads/2024/09/4-5.png',
+    title: 'Anti acid & Gastric Range',
+  },
+  {
+    id: 5,
+    image: 'https://hcareindia.com/wp-content/uploads/2024/09/16-1.png',
+    title: 'Injectables',
+  },
+  {
+    id: 6,
+    image: 'https://hcareindia.com/wp-content/uploads/2024/09/6-3.png',
+    title: 'Anti Cough & Cold',
+  },
+  {
+    id: 7,
+    image: 'https://hcareindia.com/wp-content/uploads/2024/09/7-3.png',
+    title: 'Pediatrics',
+  },
 ];
 
-const HighQualityProducts = () => {
+const PremiumProducts = () => {
   const scrollViewRef = useRef(null);
   const itemWidth = screenWidth / 2; // Two images visible at once
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -41,9 +65,9 @@ const HighQualityProducts = () => {
   return (
     <View style={styles.container}>
       {/* Scroll Left Button */}
-      <Text variant="headlineSmall">High Quality PCD Pharma Products</Text>
+      <Text variant='headlineMedium'>Hgh Quality PCD Pharma Products</Text>
       <IconButton
-        icon="chevron-left"
+        icon='chevron-left'
         size={30}
         onPress={handleScrollLeft}
         style={styles.arrowLeft}
@@ -54,7 +78,7 @@ const HighQualityProducts = () => {
         horizontal
         showsHorizontalScrollIndicator={false}
         snapToInterval={itemWidth}
-        decelerationRate="fast"
+        decelerationRate='fast'
         onScroll={(event) => {
           const currentOffset = event.nativeEvent.contentOffset.x;
           setScrollPosition(currentOffset);
@@ -62,13 +86,30 @@ const HighQualityProducts = () => {
         scrollEventThrottle={16}
       >
         {data.map((item) => (
-          <View key={item.id} style={styles.imageContainer}>
-            <Image source={{ uri: item.image }} style={styles.image} />
-          </View>
+          <Card style={styles.card}>
+            <Card.Cover
+              source={{
+                uri: `${item.image}`,
+              }}
+              style={styles.image}
+            />
+            <Card.Content>
+              <Title style={styles.title}>{item.title}</Title>
+            </Card.Content>
+            <Card.Actions>
+              <Button
+                textColor='rgba(171, 127, 233, 0.89)'
+                onPress={() => console.log('Read More')}
+                mode='outlined'
+              >
+                Read More
+              </Button>
+            </Card.Actions>
+          </Card>
         ))}
       </ScrollView>
       <IconButton
-        icon="chevron-right"
+        icon='chevron-right'
         size={30}
         onPress={handleScrollRight}
         style={styles.arrowRight}
@@ -79,30 +120,49 @@ const HighQualityProducts = () => {
 
 const styles = StyleSheet.create({
   container: {
-    margin:10,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#fff",
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(247, 244, 253, 0.89)',
+    marginBottom: 20,
+    gap: 10,
   },
   imageContainer: {
     width: screenWidth / 2,
     padding: 10,
+    resizeMode: 'cover',
+  },
+  card: {
+    width: 250,
+    height: 'auto',
+    borderRadius: 10,
+    overflow: 'hidden',
+    backgroundColor: '#fff',
+    margin: 10,
+  },
+  title: {
+    textAlign: 'center',
+    marginTop: 8,
+    fontSize: 18,
+    fontWeight: 'bold',
   },
   image: {
-    width: "100%",
-    height: 150,
-    borderRadius: 10,
+    width: '100%',
+    height: 200,
+    borderRadius: 30,
+    // resizeMode: 'stretch',
   },
   arrowLeft: {
-    position: "absolute",
+    position: 'absolute',
     left: 10,
     zIndex: 1,
+    backgroundColor: 'rgba(208, 184, 245, 0.89)',
   },
   arrowRight: {
-    position: "absolute",
+    position: 'absolute',
     right: 10,
-    zIndex: 1,
+    zIndex: 100,
+    backgroundColor: 'rgba(208, 184, 245, 0.89)',
   },
 });
 
-export default HighQualityProducts;
+export default PremiumProducts;

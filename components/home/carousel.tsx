@@ -15,7 +15,7 @@ const data = [
   {
     title: "First Slide",
     description: "This is the first slide description.",
-    image: "https://picsum.photos/600/400?random=1",
+    image: "https://www.hcareindia.com/wp-content/uploads/2024/11/Best.webp",
   },
   {
     title: "Second Slide",
@@ -57,24 +57,9 @@ const Home = () => {
         {data.map((item, index) => (
           <View key={index} style={styles.slide}>
             <Image source={{ uri: item.image }} style={styles.image} />
-            <Text style={styles.title}>{item.title}</Text>
-            <Text style={styles.description}>{item.description}</Text>
           </View>
         ))}
       </ScrollView>
-
-      <View style={styles.dotsContainer}>
-        {data.map((_, index) => (
-          <TouchableOpacity
-            key={index}
-            onPress={() => handleDotPress(index)}
-            style={[
-              styles.dot,
-              activeIndex === index ? styles.activeDot : styles.inactiveDot,
-            ]}
-          />
-        ))}
-      </View>
     </View>
   );
 };
@@ -85,6 +70,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#ffffff",
+    marginBottom:20
   },
   slide: {
     width: screenWidth,
@@ -92,9 +78,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   image: {
-    width: "90%",
+    width: "100%",
     height: 200,
     borderRadius: 10,
+    resizeMode:'cover'
   },
   title: {
     fontSize: 18,

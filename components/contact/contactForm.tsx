@@ -4,10 +4,13 @@ import {
   View,
   TextInput,
   Text,
-  Button,
   Alert,
   ScrollView,
 } from "react-native";
+import Address from "./address";
+import { Divider } from "react-native-paper";
+import { Button } from 'react-native-paper';
+import MapComponent from "./map";
 
 const ContactForm = () => {
   const [name, setName] = useState("");
@@ -79,8 +82,14 @@ const ContactForm = () => {
       />
 
       <View style={styles.buttonContainer}>
-        <Button title="Submit Your Details" onPress={handleSubmit} />
+        {/* <Button title="Submit Your Details" onPress={handleSubmit} /> */}
+        <Button icon="check" mode="contained" onPress={handleSubmit}>
+    Submit Your Detials
+  </Button>
       </View>
+      <Divider/>
+      <Address/>
+      <MapComponent/>
     </ScrollView>
   );
 };
@@ -90,6 +99,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     padding: 20,
     backgroundColor: "#fff",
+    marginBottom:20
   },
   title: {
     fontSize: 24,
@@ -112,6 +122,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     marginTop: 20,
+    marginBottom:20,
     borderRadius: 8,
     overflow: "hidden", // To clip the button corners
   },

@@ -1,45 +1,53 @@
-import React, { useState } from "react";
-import { View, StyleSheet } from "react-native";
-import { List, Text } from "react-native-paper";
+import React from "react";
+import { View, Text, Image, StyleSheet, Dimensions } from "react-native";
 
-const AccordionExample = () => {
-  const [expanded, setExpanded] = useState(false);
-
-  const handlePress = () => setExpanded(!expanded);
-
+const ImageWithDescription = ({ imageSource, title, description }: { imageSource: any; title: string; description: string }) => {
   return (
     <View style={styles.container}>
-      <List.Section>
-        <List.Accordion
-          title="H & Care Incorp - PCD Pharma Company"
-          left={(props) => <List.Icon {...props} icon="heart" />}
-          expanded={expanded}
-          onPress={handlePress}
-        >
-          <Text variant="titleSmall">
-          H & Care Incorp is one of the best PCD pharma franchise company with pharmaceutical segments covering cardiovascular, diabetes, orthopedics, dermatology and general medicines range. Start your pharma franchise with our franchise opportunity in India. Benefit from a complete range of product categories to enter new markets with our PCD pharma franchise. We are supplying and marketing a complete range of GMP-certified Pharmaceutical Formulations, Herbal Products and Supplements.
-          </Text>
-        </List.Accordion>
-
-        <List.Accordion
-          title="What makes us Best"
-          left={(props) => <List.Icon {...props} icon="heart-outline" />}
-        >
-          <Text variant="titleSmall">
-          We are an ISO 9001:2015 certified pharma company working with 600+ associates and all products are CGMP/WHO-certified, excellent packaging with latest molecules and combinations. We provide high-quality products with monopoly rights, which means the freedom to operate with no competition and significant decision-making authority.
-          </Text>
-        </List.Accordion>
-      </List.Section>
+      <Image source={{ uri: "https://www.hcareindia.com/wp-content/uploads/2024/12/pharma-franchise-company-2.png" }} style={styles.image} />
+      <View style={styles.textContainer}>
+        <Text style={styles.title}>What Makes US Best Pcd Pharma Franchise COmpany In India</Text>
+        <Text style={styles.description}>We are an ISO 9001:2015 certified pharma company working with 600+ associates and all products are CGMP/WHO-certified, excellent packaging with latest molecules and compbinaions. We provide high-quality products with monopoly rights, which means the freedom to operate with no competition and significant decisio-making authority.</Text>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#fff",
+    flexDirection: "row", // ✅ Aligns image and text side by side
+    alignItems: "center", // ✅ Centers items vertically
     padding: 16,
+    backgroundColor: "#fff",
+    borderRadius: 10,
+    shadowColor: "#000",
+    shadowOpacity: 0.2,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 4,
+    elevation: 3,
+    margin: 10,
+    gap:10
+  },
+  image: {
+    width: 150,
+    height: 150,
+    borderRadius: 10,
+    marginRight: Dimensions.get("window").width > 600 ? 16 : 0,
+    marginBottom: Dimensions.get("window").width > 600 ? 0 : 10,
+    resizeMode:'stretch'
+  },
+  textContainer: {
+    flex: 1,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: "bold",
+    marginBottom: 6,
+  },
+  description: {
+    fontSize: 14,
+    color: "#666",
   },
 });
 
-export default AccordionExample;
+export default ImageWithDescription;
