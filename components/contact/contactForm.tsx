@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   StyleSheet,
   View,
@@ -6,36 +6,34 @@ import {
   Text,
   Alert,
   ScrollView,
-} from "react-native";
-import Address from "./address";
-import { Divider } from "react-native-paper";
+} from 'react-native';
+import Address from './address';
+import { Divider } from 'react-native-paper';
 import { Button } from 'react-native-paper';
-import MapComponent from "./map";
 
 const ContactForm = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [city, setCity] = useState("");
-  const [phone, setPhone] = useState("");
-  const [query, setQuery] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [city, setCity] = useState('');
+  const [phone, setPhone] = useState('');
+  const [query, setQuery] = useState('');
 
   const handleSubmit = () => {
     if (!name || !email || !city || !phone || !query) {
-      Alert.alert("Error", "Please fill in all fields.");
+      Alert.alert('Error', 'Please fill in all fields.');
       return;
     }
 
     Alert.alert(
-      "Thank You!",
-      `We have received your details:\n\nName: ${name}\nEmail: ${email}\nCity: ${city}\nPhone: ${phone}\nQuery: ${query}`
+      'Thank You!',
+      `We have received your details:\n\nName: ${name}\nEmail: ${email}\nCity: ${city}\nPhone: ${phone}\nQuery: ${query}`,
     );
 
-    // Clear the form
-    setName("");
-    setEmail("");
-    setCity("");
-    setPhone("");
-    setQuery("");
+    setName('');
+    setEmail('');
+    setCity('');
+    setPhone('');
+    setQuery('');
   };
 
   return (
@@ -43,37 +41,37 @@ const ContactForm = () => {
       <Text style={styles.title}>Leave us a message</Text>
 
       <TextInput
-        placeholder="Name"
+        placeholder='Name'
         value={name}
         onChangeText={setName}
         style={styles.input}
       />
 
       <TextInput
-        placeholder="Email"
+        placeholder='Email'
         value={email}
         onChangeText={setEmail}
-        keyboardType="email-address"
+        keyboardType='email-address'
         style={styles.input}
       />
 
       <TextInput
-        placeholder="City"
+        placeholder='City'
         value={city}
         onChangeText={setCity}
         style={styles.input}
       />
 
       <TextInput
-        placeholder="Phone Number"
+        placeholder='Phone Number'
         value={phone}
         onChangeText={setPhone}
-        keyboardType="phone-pad"
+        keyboardType='phone-pad'
         style={styles.input}
       />
 
       <TextInput
-        placeholder="Query"
+        placeholder='Query'
         value={query}
         onChangeText={setQuery}
         multiline
@@ -82,14 +80,12 @@ const ContactForm = () => {
       />
 
       <View style={styles.buttonContainer}>
-        {/* <Button title="Submit Your Details" onPress={handleSubmit} /> */}
-        <Button icon="check" mode="contained" onPress={handleSubmit}>
-    Submit Your Detials
-  </Button>
+        <Button icon='check' mode='contained' onPress={handleSubmit}>
+          <Text>Submit Your Detials</Text>
+        </Button>
       </View>
-      <Divider/>
-      <Address/>
-      <MapComponent/>
+      <Divider />
+      <Address />
     </ScrollView>
   );
 };
@@ -98,33 +94,33 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     padding: 20,
-    backgroundColor: "#fff",
-    marginBottom:20
+    backgroundColor: '#fff',
+    marginBottom: 20,
   },
   title: {
     fontSize: 24,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 20,
-    textAlign: "center",
+    textAlign: 'center',
   },
   input: {
     borderWidth: 1,
-    borderColor: "#ccc",
+    borderColor: '#ccc',
     borderRadius: 8,
     padding: 10,
     marginBottom: 15,
     fontSize: 16,
-    backgroundColor: "#f9f9f9",
+    backgroundColor: '#f9f9f9',
   },
   textArea: {
     height: 100,
-    textAlignVertical: "top", // Align text to the top for multiline
+    textAlignVertical: 'top',
   },
   buttonContainer: {
     marginTop: 20,
-    marginBottom:20,
+    marginBottom: 20,
     borderRadius: 8,
-    overflow: "hidden", // To clip the button corners
+    overflow: 'hidden',
   },
 });
 

@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Text, Title } from 'react-native-paper';
 import { Card, Button } from 'react-native-paper';
-import { StyleSheet, View, Dimensions, Image, ScrollView } from 'react-native';
+import { StyleSheet, View, Dimensions, ScrollView } from 'react-native';
 import { IconButton } from 'react-native-paper';
 
 const { width: screenWidth } = Dimensions.get('window');
@@ -46,7 +46,7 @@ const data = [
 
 const PremiumProducts = () => {
   const scrollViewRef = useRef(null);
-  const itemWidth = screenWidth / 2; // Two images visible at once
+  const itemWidth = screenWidth / 2;
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const handleScrollLeft = () => {
@@ -64,8 +64,9 @@ const PremiumProducts = () => {
 
   return (
     <View style={styles.container}>
-      {/* Scroll Left Button */}
-      <Text variant='headlineMedium'>Hgh Quality PCD Pharma Products</Text>
+      <Text style={styles.HQPPtitle} variant='titleMedium'>
+        Hgh Quality PCD Pharma Products
+      </Text>
       <IconButton
         icon='chevron-left'
         size={30}
@@ -91,7 +92,6 @@ const PremiumProducts = () => {
               source={{
                 uri: `${item.image}`,
               }}
-              style={styles.image}
             />
             <Card.Content>
               <Title style={styles.title}>{item.title}</Title>
@@ -101,8 +101,9 @@ const PremiumProducts = () => {
                 textColor='rgba(171, 127, 233, 0.89)'
                 onPress={() => console.log('Read More')}
                 mode='outlined'
+                style={{ marginRight: 100 }}
               >
-                Read More
+                <Text>Read More</Text>
               </Button>
             </Card.Actions>
           </Card>
@@ -120,11 +121,13 @@ const PremiumProducts = () => {
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
-    justifyContent: 'center',
     backgroundColor: 'rgba(247, 244, 253, 0.89)',
-    marginBottom: 20,
-    gap: 10,
+    padding: 20,
+  },
+  HQPPtitle: {
+    fontWeight: 'bold',
+    marginBottom: 10,
+    alignSelf: 'flex-start',
   },
   imageContainer: {
     width: screenWidth / 2,
@@ -133,35 +136,35 @@ const styles = StyleSheet.create({
   },
   card: {
     width: 250,
-    height: 'auto',
+    height: 300,
     borderRadius: 10,
     overflow: 'hidden',
     backgroundColor: '#fff',
     margin: 10,
   },
   title: {
-    textAlign: 'center',
     marginTop: 8,
-    fontSize: 18,
+    fontSize: 15,
     fontWeight: 'bold',
   },
   image: {
     width: '100%',
     height: 200,
     borderRadius: 30,
-    // resizeMode: 'stretch',
   },
   arrowLeft: {
     position: 'absolute',
-    left: 10,
+    right: 40,
+    top: 0,
     zIndex: 1,
-    backgroundColor: 'rgba(208, 184, 245, 0.89)',
+    marginRight: 10,
   },
   arrowRight: {
     position: 'absolute',
-    right: 10,
+    right: 0,
+    top: 0,
     zIndex: 100,
-    backgroundColor: 'rgba(208, 184, 245, 0.89)',
+    marginLeft: 10,
   },
 });
 

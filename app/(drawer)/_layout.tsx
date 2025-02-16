@@ -5,23 +5,81 @@ import {
 import { Drawer } from 'expo-router/drawer';
 import { Ionicons } from '@expo/vector-icons';
 import { View, Image, Dimensions, Button } from 'react-native';
-import { Text } from 'react-native-paper';
-import { white } from 'react-native-paper/lib/typescript/styles/themes/v2/colors';
+import { Divider, List, Text } from 'react-native-paper';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 function CustomDrawerContent() {
   return (
     <View style={{ flex: 1, padding: 20 }}>
-      {/* Drawer Logo (Inside Drawer) */}
       <Image
         source={{
           uri: 'https://hcareindia.com/wp-content/uploads/2024/09/Untitled-design-65-1.png',
         }}
-        style={{ width: 100, height: 50, alignSelf: 'center' }}
+        style={{
+          width: 200,
+          height: 70,
+          marginLeft: -25,
+        }}
         resizeMode='contain'
       />
-      {/* Drawer Items will go here */}
+
+      <List.Section>
+        <List.Item
+          titleStyle={{ color: 'rgba(88, 26, 204, 0.89)', fontWeight: '700' }}
+          title='Home'
+          left={() => <List.Icon icon='home' color='rgba(88, 26, 204, 0.89)' />}
+        />
+        <Divider
+          style={{ backgroundColor: 'rgba(199, 179, 236, 0.89)', height: 2 }}
+        />
+        <List.Item
+          title='About Us'
+          titleStyle={{ color: 'rgba(88, 26, 204, 0.89)', fontWeight: '700' }}
+          left={() => (
+            <List.Icon
+              icon='information-outline'
+              color='rgba(88, 26, 204, 0.89)'
+            />
+          )}
+        />
+        <Divider
+          style={{ backgroundColor: 'rgba(199, 179, 236, 0.89)', height: 2 }}
+        />
+        <List.Item
+          title='Contact Us'
+          titleStyle={{ color: 'rgba(88, 26, 204, 0.89)', fontWeight: '700' }}
+          left={() => (
+            <List.Icon icon='email' color='rgba(88, 26, 204, 0.89)' />
+          )}
+        />
+        <Divider
+          style={{ backgroundColor: 'rgba(199, 179, 236, 0.89)', height: 2 }}
+        />
+        <List.Item
+          title='Settings'
+          titleStyle={{ color: 'rgba(88, 26, 204, 0.89)', fontWeight: '700' }}
+          left={() => (
+            <List.Icon icon='cog-outline' color='rgba(88, 26, 204, 0.89)' />
+          )}
+        />
+        <Divider
+          style={{ backgroundColor: 'rgba(199, 179, 236, 0.89)', height: 2 }}
+        />
+        <List.Item
+          title='Products'
+          titleStyle={{ color: 'rgba(88, 26, 204, 0.89)', fontWeight: '700' }}
+          left={() => (
+            <List.Icon
+              icon='shopping-outline'
+              color='rgba(88, 26, 204, 0.89)'
+            />
+          )}
+        />
+        <Divider
+          style={{ backgroundColor: 'rgba(199, 179, 236, 0.89)', height: 2 }}
+        />
+      </List.Section>
     </View>
   );
 }
@@ -30,7 +88,7 @@ export default function Layout() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <Drawer
-        drawerContent={CustomDrawerContent} // Custom drawer with logo
+        drawerContent={CustomDrawerContent}
         screenOptions={({ navigation }) => ({
           drawerPosition: 'left',
           drawerStyle: {
@@ -44,19 +102,17 @@ export default function Layout() {
                 marginLeft: 10,
               }}
             >
-              {/* Logo */}
               <Image
                 source={{
                   uri: 'https://hcareindia.com/wp-content/uploads/2024/09/Untitled-design-65-1.png',
                 }}
-                style={{ width: 100, height: 40 }}
+                style={{ width: 120, height: 70 }}
                 resizeMode='contain'
               />
-              {/* Button Next to Logo */}
               <TouchableOpacity
                 onPress={() => alert('Button Clicked!')}
                 style={{
-                  marginLeft: 40,
+                  marginLeft: 100,
                   paddingVertical: 8,
                   paddingHorizontal: 15,
                   borderRadius: 5,
@@ -78,10 +134,10 @@ export default function Layout() {
               <Ionicons name='menu' size={28} color='black' />
             </TouchableOpacity>
           ),
-          title: '', // Remove "H & Care" from header
+          title: '',
         })}
       >
-        <Drawer.Screen name='Home' />
+        {/* <Drawer.Screen name='Home' /> */}
       </Drawer>
     </GestureHandlerRootView>
   );
