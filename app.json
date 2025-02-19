@@ -9,38 +9,46 @@
     "userInterfaceStyle": "automatic",
     "updates": {
       "enabled": true,
-      "checkAutomatically": "ON_LOAD", 
+      "checkAutomatically": "ON_LOAD",
       "fallbackToCacheTimeout": 0
-    }
-  },
-    "newArchEnabled": true,
-    "ios": {
-      "supportsTablet": true
     },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+    "extra": {
+      "eas": {
+        "projectId": "a04ceb43-c177-40a7-a968-1828e6a58dfa"
       }
     },
-    "web": {
-      "bundler": "metro",
-      "output": "static",
-      "favicon": "./assets/images/favicon.png"
-    },
-    "plugins": [
-      "expo-router",
-      [
-        "expo-splash-screen",
-        {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
-        }
-      ]
-    ],
-    "experiments": {
-      "typedRoutes": true
+    "android": {
+      "package": "com.anshul_singh007.hcare"
     }
+  },
+  "newArchEnabled": true,
+  "ios": {
+    "supportsTablet": true
+  },
+  "android": {
+    "adaptiveIcon": {
+      "foregroundImage": "./assets/images/adaptive-icon.png",
+      "backgroundColor": "#ffffff"
+    }
+  },
+  "web": {
+    "bundler": "metro",
+    "output": "static",
+    "favicon": "./assets/images/favicon.png"
+  },
+  "plugins": [
+    "expo-router",
+    [
+      "expo-splash-screen",
+      {
+        "image": "./assets/images/splash-icon.png",
+        "imageWidth": 200,
+        "resizeMode": "contain",
+        "backgroundColor": "#ffffff"
+      }
+    ]
+  ],
+  "experiments": {
+    "typedRoutes": true
   }
+}

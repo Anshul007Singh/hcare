@@ -22,8 +22,13 @@ const Home = () => {
       <HighQualityProducts />
       <Divider />
       <AccordionDetails />
-      <Divider />
+      <Divider
+        style={{ backgroundColor: 'rgba(199, 179, 236, 0.89)', height: 1 }}
+      />
       <Divsions />
+      <Divider
+        style={{ backgroundColor: 'rgba(199, 179, 236, 0.89)', height: 1 }}
+      />
     </ScrollView>
   );
 };

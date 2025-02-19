@@ -26,7 +26,7 @@ function CustomDrawerContent() {
 
       <List.Section>
         <List.Item
-          titleStyle={{ color: 'rgba(88, 26, 204, 0.89)', fontWeight: '700' }}
+          titleStyle={{ color: 'rgba(149, 101, 238, 0.89)', fontWeight: '700' }}
           title='Home'
           left={() => <List.Icon icon='home' color='rgba(88, 26, 204, 0.89)' />}
         />
@@ -35,7 +35,7 @@ function CustomDrawerContent() {
         />
         <List.Item
           title='About Us'
-          titleStyle={{ color: 'rgba(88, 26, 204, 0.89)', fontWeight: '700' }}
+          titleStyle={{ color: 'rgba(149, 101, 238, 0.89)', fontWeight: '700' }}
           left={() => (
             <List.Icon
               icon='information-outline'
@@ -48,7 +48,7 @@ function CustomDrawerContent() {
         />
         <List.Item
           title='Contact Us'
-          titleStyle={{ color: 'rgba(88, 26, 204, 0.89)', fontWeight: '700' }}
+          titleStyle={{ color: 'rgba(149, 101, 238, 0.89)', fontWeight: '700' }}
           left={() => (
             <List.Icon icon='email' color='rgba(88, 26, 204, 0.89)' />
           )}
@@ -58,7 +58,7 @@ function CustomDrawerContent() {
         />
         <List.Item
           title='Settings'
-          titleStyle={{ color: 'rgba(88, 26, 204, 0.89)', fontWeight: '700' }}
+          titleStyle={{ color: 'rgba(149, 101, 238, 0.89)', fontWeight: '700' }}
           left={() => (
             <List.Icon icon='cog-outline' color='rgba(88, 26, 204, 0.89)' />
           )}
@@ -68,7 +68,7 @@ function CustomDrawerContent() {
         />
         <List.Item
           title='Products'
-          titleStyle={{ color: 'rgba(88, 26, 204, 0.89)', fontWeight: '700' }}
+          titleStyle={{ color: 'rgba(149, 101, 238, 0.89)', fontWeight: '700' }}
           left={() => (
             <List.Icon
               icon='shopping-outline'

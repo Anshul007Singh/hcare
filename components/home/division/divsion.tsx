@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
-import { Button } from 'react-native-paper';
+import { Button, Divider } from 'react-native-paper';
 
 const DATA = [
   {
@@ -73,6 +73,9 @@ const ListWithoutPaper = () => {
 
   return (
     <View style={styles.container}>
+      <Text style={{ fontSize: 25, fontWeight: 700, textAlign: 'center' }}>
+        Our Divisions
+      </Text>
       <FlatList
         data={DATA}
         keyExtractor={(item) => item.id}
