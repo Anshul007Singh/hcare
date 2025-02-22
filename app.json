@@ -19,6 +19,9 @@
     },
     "android": {
       "package": "com.anshul_singh007.hcare"
+    },
+    "ios": {
+      "bundleIdentifier": "com.anshul_singh007.hcare"
     }
   },
   "newArchEnabled": true,

@@ -17,9 +17,9 @@ const Home = () => {
       </View>
       <PremiumProducts />
       <Divider />
-      <AccordionExample />
-      <Divider />
       <HighQualityProducts />
+      <Divider />
+      <AccordionExample />
       <Divider />
       <AccordionDetails />
       <Divider

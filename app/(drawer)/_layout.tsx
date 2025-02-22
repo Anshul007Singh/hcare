@@ -112,7 +112,7 @@ export default function Layout() {
               <TouchableOpacity
                 onPress={() => alert('Button Clicked!')}
                 style={{
-                  marginLeft: 100,
+                  marginLeft: 70,
                   paddingVertical: 8,
                   paddingHorizontal: 15,
                   borderRadius: 5,

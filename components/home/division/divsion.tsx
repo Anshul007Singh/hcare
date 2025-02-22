@@ -64,8 +64,9 @@ const ListWithoutPaper = () => {
         <Button
           mode='outlined'
           onPress={() => alert(`Clicked on ${item.name}`)}
+          style={{ marginLeft: 50 }}
         >
-          Download Product List
+          Download
         </Button>
       </TouchableOpacity>
     </View>
@@ -74,7 +75,7 @@ const ListWithoutPaper = () => {
   return (
     <View style={styles.container}>
       <Text style={{ fontSize: 25, fontWeight: 700, textAlign: 'center' }}>
-        Our Divisions
+        Our Divisions Products
       </Text>
       <FlatList
         data={DATA}

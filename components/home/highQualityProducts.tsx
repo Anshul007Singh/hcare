@@ -141,6 +141,11 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     backgroundColor: '#fff',
     margin: 10,
+    shadowColor: 'rgba(88, 26, 204, 0.89)',
+    shadowOffset: { width: 3, height: 7 },
+    shadowOpacity: 0.6,
+    shadowRadius: 8,
+    elevation: 7,
   },
   title: {
     marginTop: 8,
